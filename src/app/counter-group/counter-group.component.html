@@ -1,0 +1,5 @@
+<p>counter-group works!</p>
+<button (click)="doCreateCounter()"> Create Counter</button>
+<app-counter *ngFor="let item of counters" [counter]="item"></app-counter>
+<div>{{sumCounts()}}</div>
+<button>Reset</button>
