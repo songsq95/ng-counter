@@ -20,5 +20,10 @@ export class CounterComponent implements OnInit {
   isLargeOrEqualThanZero(): boolean{
     return this.count >= 0;
   }
-
+  isLessOrEqualThanTen(): boolean{
+    return this.count <= 10;
+  }
+  isLargerThanTen(): boolean{
+    return this.count > 10;
+  }
 }

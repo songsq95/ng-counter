@@ -54,4 +54,27 @@ describe('CounterComponent', () => {
     const minusBtn = fixture.nativeElement.querySelector('[data-test="minusBtn"]');
     expect(minusBtn).toBeFalsy();
   });
+
+  it('should plus btn disappear when count number larger than 10', () => {
+    // given
+    component.count = 11;
+    // when
+    fixture.detectChanges();
+    // then
+    const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]');
+    expect(plusBtn).toBeFalsy();
+  });
+  
+  it('should given false when count number less than 0', () => {
+    // given
+    component.count = -1;
+    // when
+    expect(component.isLargeOrEqualThanZero()).toBeFalse();  
+  });
+  it('should given true when count number less than 0', () => {
+    // given
+    component.count = 1;
+    // when
+    expect(component.isLargeOrEqualThanZero()).toBeTrue();  
+  });
 });
