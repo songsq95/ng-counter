@@ -26,4 +26,7 @@ export class CounterComponent implements OnInit {
   isLargerThanTen(): boolean{
     return this.count > 10;
   }
+  resetZero(): void{
+    this.count = 0;
+  }
 }

@@ -91,13 +91,11 @@ describe('CounterComponent', () => {
   });
   it('should reset 0 when click reset button', () => {
     // given
-    component.count = 0;
-    const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]');
+    component.count = 1;
+    const resetBtn = fixture.nativeElement.querySelector('[data-test="resetBtn"]');
     // when
-    plusBtn.click();
-    fixture.detectChanges();
+    resetBtn.click();
     // then
-    const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]');
-    expect(displayCount.textContent).toEqual('number: 1');
+    expect(component.count).toEqual(0);
   });
 });
