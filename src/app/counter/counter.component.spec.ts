@@ -71,10 +71,33 @@ describe('CounterComponent', () => {
     // when
     expect(component.isLargeOrEqualThanZero()).toBeFalse();  
   });
-  it('should given true when count number less than 0', () => {
+  it('should given true when count number large or equal than 0', () => {
     // given
     component.count = 1;
     // when
     expect(component.isLargeOrEqualThanZero()).toBeTrue();  
+  });
+  it('should given false when count number greater than 10', () => {
+    // given
+    component.count = 11;
+    // when
+    expect(component.isLessOrEqualThanTen()).toBeFalse();  
+  });
+  it('should given true when count number less or equal than 10', () => {
+    // given
+    component.count = 10;
+    // when
+    expect(component.isLessOrEqualThanTen()).toBeTrue();  
+  });
+  it('should reset 0 when click reset button', () => {
+    // given
+    component.count = 0;
+    const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]');
+    // when
+    plusBtn.click();
+    fixture.detectChanges();
+    // then
+    const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]');
+    expect(displayCount.textContent).toEqual('number: 1');
   });
 });
